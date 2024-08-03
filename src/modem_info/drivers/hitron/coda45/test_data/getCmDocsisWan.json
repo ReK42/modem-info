@@ -1,0 +1,11 @@
+[
+{
+"Configname":"00-00-5e-00-53-01.bin",
+"ConfignameDisplay":"0",
+"NetworkAccess":"Permitted",
+"CmIpAddress":"2001:db8::1",
+"CmNetMask":"",
+"CmGateway":"",
+"CmIpLeaseDuration":"D: -- H: -- M: -- S: --"
+}
+]

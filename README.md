@@ -8,6 +8,8 @@
 
 Collect and plot detailed information and statistics from your modem.
 
+![An example plot of DOCSIS modem statistics](./doc/screenshots/example_docsis.png "Example Plot")
+
 ## Installation
 Install [Python](https://www.python.org/downloads/), then install [pipx](https://github.com/pypa/pipx) and use it to install `modem-info`:
 ```sh

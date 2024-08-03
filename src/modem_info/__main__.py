@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
 """Collect and plot detailed information and statistics from your modem."""
+
 from datetime import datetime, timezone
 from typing import TYPE_CHECKING
 

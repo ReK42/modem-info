@@ -57,8 +57,8 @@ modem-info = "modem_info.__main__:main"
 
 [project.optional-dependencies]
 test = [
-    "black == 24.4.2",
-    "ruff == 0.5.5",
+    "black == 24.8.0",
+    "ruff == 0.5.6",
     "mypy == 1.11.1",
     "pandas-stubs == 2.2.2.240603"
 ]

@@ -84,6 +84,7 @@
                 ".pytype",
                 "cython_debug",
                 "*.sublime-workspace",
+                ".env*",
             ],
             "file_exclude_patterns": [
                 "*.pyc",

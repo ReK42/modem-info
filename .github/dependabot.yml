@@ -1,0 +1,35 @@
+---
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      all:
+        applies-to: version-updates
+        patterns:
+          - "*"
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      development:
+        applies-to: version-updates
+        patterns:
+          - "black"
+          - "ruff"
+          - "mypy"
+          - "pandas-stubs"
+          - "setuptools"
+          - "setuptools-scm"
+          - "build"
+          - "twine"
+      minor-and-patch:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"

@@ -1,0 +1,74 @@
+---
+name: Release
+
+on:
+  push:
+    tags: ["release/**"]
+
+permissions:
+  contents: read
+
+env:
+  FORCE_COLOR: 1
+  MYPY_FORCE_COLOR: 1
+  PY_COLORS: 1
+  TOX_TESTENV_PASSENV: >-
+    FORCE_COLOR
+    MYPY_FORCE_COLOR
+    NO_COLOR
+    PY_COLORS
+    PYTEST_THEME
+    PYTEST_THEME_MODE
+  TOX_PARALLEL_NO_SPINNER: 1
+
+jobs:
+  test:
+    name: Test
+    uses: ./.github/workflows/test.yml
+
+  release:
+    name: Release
+    needs:
+      - test
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+          cache: pip
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install .[build]
+
+      - name: Build
+        run: python -m build
+
+      - name: Get Version
+        id: version
+        shell: bash
+        run: |
+          export VERSION=$(python -c "import sys;sys.path.append('src/modem_info');from _version import version;print(version)")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION"
+          [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+ ]] || exit 1
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          print-hash: true
+
+      - name: Publish to GitHub
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ steps.version.outputs.version }}
+          generate_release_notes: true
+          files: "dist/*"

@@ -29,7 +29,10 @@ To plot statistics that were saved in CSV format, use the `plot` command:
 modem-info plot <FILE>
 ```
 
-For all options, run `modem-info <COMMAND> --help`
+For all options, run:
+```sh
+modem-info <COMMAND> --help
+```
 
 ## Supported Modems
 | Vendor | Model   | Driver Package                     |

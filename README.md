@@ -17,6 +17,8 @@ pipx install modem-info
 ```
 
 ## Usage
+**Note:** Ensure the `--path` (default: `./data`) exists and is writable.
+
 To collect statistics from a supported modem, use the `get` command with at least one of `--csv` or `--json`:
 ```sh
 modem-info get [--csv] [--json] <ADDRESS>
@@ -27,7 +29,10 @@ To plot statistics that were saved in CSV format, use the `plot` command:
 modem-info plot <FILE>
 ```
 
-For all options, run `modem-info <COMMAND> --help`
+For all options, run:
+```sh
+modem-info <COMMAND> --help
+```
 
 ## Supported Modems
 | Vendor | Model   | Driver Package                     |
@@ -50,7 +55,7 @@ pip install -e .[test]
 ```sh
 mypy src
 ruff check src
-black --check src
+ruff format --diff src
 ```
 
 ### Manual Building

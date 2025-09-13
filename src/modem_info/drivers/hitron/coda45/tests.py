@@ -1,14 +1,12 @@
 """Tests for the Hitron CODA-45 modem driver."""
 
 import os.path
-
 from importlib import import_module
 from json import loads
 from pathlib import Path
 from time import time_ns
 
 from pydantic import BaseModel
-
 
 BASE: Path = Path(os.path.realpath(__file__)).parent / Path("test_data")
 MODULE: str = "modem_info.drivers.hitron.coda45.models"

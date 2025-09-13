@@ -6,16 +6,16 @@ from csv import DictWriter
 from ipaddress import IPv4Address, IPv6Address, ip_address
 from pathlib import Path
 from time import sleep
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 import click
 
 from modem_info.__main__ import main
 from modem_info.drivers.hitron.coda45 import HitronCoda45
 
-
 if TYPE_CHECKING:
     from rich.console import Console
+
     from modem_info.drivers import HTTPDOCSISModemDriverProtocol
 
 

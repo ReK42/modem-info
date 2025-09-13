@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
+import re
 from datetime import timedelta
 from ipaddress import IPv4Address, IPv6Address, ip_address
-from re import compile
 
 from pydantic import BaseModel, Field, field_validator
-from pydantic_extra_types.mac_address import MacAddress  # noqa: TCH002
+from pydantic_extra_types.mac_address import MacAddress  # noqa: TC002
 
 from modem_info.drivers.hitron.coda45 import export
 
@@ -175,11 +175,11 @@ class DOCSISOverviewData(BaseModel):
     @field_validator("lease_duration", mode="before")
     @classmethod
     def _normalize_lease_duration(cls, v: str) -> timedelta:
-        re_lease_duration = compile(
+        re_lease_duration = re.compile(
             r"D: (?P<days>[0-9-]+) "
             r"H: (?P<hours>[0-9-]+) "
             r"M: (?P<minutes>[0-9-]+) "
-            r"S: (?P<seconds>[0-9-]+)"  # noqa: COM812
+            r"S: (?P<seconds>[0-9-]+)"
         )
         match = re_lease_duration.fullmatch(v)
         if not match:

@@ -17,6 +17,8 @@ pipx install modem-info
 ```
 
 ## Usage
+**Note:** Ensure the `--path` (default: `./data`) exists and is writable.
+
 To collect statistics from a supported modem, use the `get` command with at least one of `--csv` or `--json`:
 ```sh
 modem-info get [--csv] [--json] <ADDRESS>

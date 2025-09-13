@@ -12,7 +12,7 @@ def export(defn: Any) -> None:  # noqa: ANN401
     return defn
 
 
-__copyright__ = "Copyright (c) 2024 Ryan Kozak"
+__copyright__ = "Copyright (c) 2025 Ryan Kozak"
 from modem_info import drivers
 from modem_info._version import __version__
 from modem_info.get import get

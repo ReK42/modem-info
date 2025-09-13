@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING, Any, TypeVar
 
 from pydantic import BaseModel
 
-from modem_info.drivers import HTTPModemDriver
+from modem_info.drivers.utils import HTTPModemDriver
 from modem_info.drivers.hitron.coda45 import export, models
 
 if TYPE_CHECKING:

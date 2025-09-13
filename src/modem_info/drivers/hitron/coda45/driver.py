@@ -5,13 +5,12 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from statistics import mean
 from time import time, time_ns
-from typing import Any, TypeVar, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from pydantic import BaseModel
 
 from modem_info.drivers import HTTPModemDriver
 from modem_info.drivers.hitron.coda45 import export, models
-
 
 if TYPE_CHECKING:
     from httpx import Response

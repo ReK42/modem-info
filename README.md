@@ -50,7 +50,7 @@ pip install -e .[test]
 ```sh
 mypy src
 ruff check src
-black --check src
+ruff format --diff src
 ```
 
 ### Manual Building

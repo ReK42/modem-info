@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Any, Protocol, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Protocol
 
 from httpx import Client
 
-
 if TYPE_CHECKING:
     from ipaddress import IPv4Address, IPv6Address
+
     from pydantic import BaseModel
 
 

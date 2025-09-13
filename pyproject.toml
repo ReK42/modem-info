@@ -94,6 +94,10 @@ cache_dir = ".cache/mypy"
 pretty = true
 files = "src"
 
+[[tool.mypy.overrides]]
+module = "plotly.*"
+ignore_missing_imports = true
+
 [tool.ruff]
 line-length = 120
 cache-dir = ".cache/ruff"

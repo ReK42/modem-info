@@ -6,8 +6,7 @@ from typing import TYPE_CHECKING
 import click
 from rich.console import Console
 
-from modem_info import __name__, __version__, __copyright__
-
+from modem_info import __copyright__, __name__, __version__  # noqa: A004
 
 if TYPE_CHECKING:
     from collections.abc import Callable

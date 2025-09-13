@@ -12,13 +12,13 @@ def export(defn: Any) -> None:  # noqa: ANN401
     return defn
 
 
+from modem_info.drivers import (
+    hitron,
+)
 from modem_info.drivers.utils import (
     DOCSISModemDriverProtocol,
     HTTPDOCSISModemDriverProtocol,
     HTTPModemDriver,
     HTTPModemDriverProtocol,
     ModemDriverProtocol,
-)
-from modem_info.drivers import (
-    hitron,
 )

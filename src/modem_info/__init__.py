@@ -13,7 +13,7 @@ def export(defn: Any) -> None:  # noqa: ANN401
 
 
 __copyright__ = "Copyright (c) 2024 Ryan Kozak"
+from modem_info import drivers
 from modem_info._version import __version__
 from modem_info.get import get
 from modem_info.plot import plot
-from modem_info import drivers

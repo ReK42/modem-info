@@ -9,7 +9,6 @@ from plotly.graph_objects import Figure, Scatter
 
 from modem_info.__main__ import main
 
-
 if TYPE_CHECKING:
     from pandas import DataFrame
     from rich.console import Console

@@ -86,7 +86,6 @@ modem_info = ["py.typed"]
 local_scheme = "no-local-version"
 write_to = "src/modem_info/_version.py"
 tag_regex = '^(?:[\w-]+[-/])?(?P<version>[vV]?\d+(?:\.\d+){0,2}[^\+]*)(?:\+.*)?$'
-fallback_version = "0.0.1.dev1"
 
 ###########################
 # Development Environment #

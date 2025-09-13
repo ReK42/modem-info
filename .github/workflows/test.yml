@@ -57,8 +57,8 @@ jobs:
       - name: Lint
         run: ruff check src
 
-      - name: Format Code
-        run: black --check --diff --color src
+      - name: Format
+        run: ruff format --diff src
 
       - name: Test
         run: modem-info --version

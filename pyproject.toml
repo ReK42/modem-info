@@ -57,7 +57,6 @@ modem-info = "modem_info.__main__:main"
 
 [project.optional-dependencies]
 test = [
-    "black == 24.8.0",
     "ruff == 0.13.0",
     "mypy == 1.18.1",
     "pandas-stubs == 2.3.2.250827"
@@ -90,45 +89,59 @@ tag_regex = '^(?:[\w-]+[-/])?(?P<version>[vV]?\d+(?:\.\d+){0,2}[^\+]*)(?:\+.*)?$
 ###########################
 # Development Environment #
 ###########################
-[tool.black]
-line_length = 120
-
-[tool.isort]
-profile = "black"
-
 [tool.mypy]
 cache_dir = ".cache/mypy"
 pretty = true
 files = "src"
 
-[[tool.mypy.overrides]]
-module = "plotly.*"
-ignore_missing_imports = true
-
 [tool.ruff]
 line-length = 120
 cache-dir = ".cache/ruff"
-output-format = "full"
 src = ["src"]
-exclude = ["src/modem_info/_version.py"]
+exclude = ["_version.py"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15
 
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-    "C408",     # Allow dict/list/tuple literals
     "CPY",      # flake8-copyright
-    "FIX",      # Allow TODO/FIXME
-    "D203",     # Use D211 instead
-    "D212",     # Use D213 instead
-    "I001",     # Use black instead
-    "TD002",    # TODO tags don't require an author
-    "TD003",    # TODO tags don't require an issue link
+    "FIX",      # flake8-fixme
+
+    "C408",     # unnecessary-collection-call
+    "D203",     # one-blank-line-before-class (use D211 instead)
+    "D212",     # multi-line-summary-first-line (use D213 instead)
+    "TD002",    # missing-todo-author
+    "TD003",    # missing-todo-link
+
+    # https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+    "COM812",   # missing-trailing-comma
+    "COM819",   # prohibited-trailing-comma
+    "D206",     # indent-with-spaces
+    "D300",     # triple-single-quotes
+    "E111",     # indentation-with-invalid-multiple
+    "E114",     # indentation-with-invalid-multiple-comment
+    "E117",     # over-indented
+    "ISC001",   # single-line-implicit-string-concatenation
+    "ISC002",   # multi-line-implicit-string-concatenation
+    "Q000",     # bad-quotes-inline-string
+    "Q001",     # bad-quotes-multiline-string
+    "Q002",     # bad-quotes-docstring
+    "Q003",     # avoidable-escaped-quote
+    "W191",     # tab-indentation
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"__init__.py" = ["E402", "F401"]
-"src/modem_info/__init__.py" = ["D104"]
-"src/modem_info/plot.py" = ["ERA001"]
-
-[tool.ruff.lint.mccabe]
-max-complexity = 15
+"__init__.py" = [
+    "E402",     # module-import-not-at-top-of-file
+    "F401",     # unused-import
+]
+"src/modem_info/plot.py" = [
+    "ERA001",   # commented-out-code
+]

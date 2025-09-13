@@ -18,7 +18,6 @@ updates:
       development:
         applies-to: version-updates
         patterns:
-          - "black"
           - "ruff"
           - "mypy"
           - "pandas-stubs"

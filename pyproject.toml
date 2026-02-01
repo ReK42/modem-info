@@ -37,11 +37,11 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "click == 8.2.1",
+    "click == 8.3.1",
     "httpx == 0.28.1",
-    "rich == 14.1.0",
-    "pydantic == 2.11.9",
-    "pydantic-extra-types == 2.10.5",
+    "rich == 14.3.2",
+    "pydantic == 2.12.5",
+    "pydantic-extra-types == 2.11.0",
     "pandas == 2.3.2",
     "plotly == 5.23.0",
 ]
